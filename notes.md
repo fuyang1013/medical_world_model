@@ -1,3 +1,4 @@
 # Medical World Models
 
-$a_b$
+## CheXWorld: Exploring Image World Modeling for Radiograph Representation Learning
+

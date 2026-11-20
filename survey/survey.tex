@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{authblk}
+% \geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm}
+\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+\addbibresource{ref.bib}
+
+% \usepackage{caption}
+% \renewcommand{\figurename}{Figure}
+% \renewcommand{\tablename}{Table}
+
+% \usepackage{hyperref}
+% \usepackage{cleveref}
+% \crefname{figure}{Figure}{Figures}
+% \Crefname{figure}{Figure}{Figures}
+% \crefname{table}{Table}{Tables}
+% \Crefname{table}{Table}{Tables}
+
+\usepackage{enumitem}
+\title{From World Model to Medical World Model: A Functional Reconstruction Framework for Clinical Translation}
+\author{Yang Fu, Xuezhong Zhou}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Introduction}
+
+Transferring general world models to medical domain allows prediction of patient states---symptoms, clinical signs and medical imaging observations---conditioned on the therapeutic interventions. The dynamics model further supports counterfactual rollout to aid clinical decision-making. Unlike large language models (LLMs), which produce one-shot predictions based on static snapshot of patient data, medical world models form a new assistant paradigm for clinical diagnosis and treatment\cite{yang2025medicalworldmodelgenerative}. Nevertheless, naively injecting medical data into off-the-shelf general world models with no architectural adaptation is inadequate for building medical world models, as the objectives of these two scenarios diverse substantially. For general world models, visually unrealistic predicted future video frames\cite{bruce2024geniegenerativeinteractiveenvironments} constitutes merely an imperfection. In medical settings, however, a seemingly reasonable simulation with an incorrect casual direction can yield catastrophic clinical consequences. Therefore, technical reconstruction tailored to domain-specific characteristics is required when building medical world models.
+
+Existing surveys mainly focus on the capability level or application categories of the related work. Yang \cite{ding2025understandingworldpredictingfuture} classify the world models roughly into two categories, namely understanding the world and predicting the future; Qazi \cite{qazi2025generativeaiworldmodels} proposes a capability rubric ranging from L1 to L4 based on existing studies of medical world models; Saeed \cite{202604.2168}
+posits that causal validity becomes a binding constraint once counterfactual comparisons are involved. Liu \cite{liu2026medicalworldmodelsrepresenting} organizes its survey around three core capabilities: representation, dynamics, and intervention-based decision-making. Most Notably, they fail to address a critical question for clinical researchers: starting from existing general world model techniques, which components can be retained and finetuned, which must be removed or restructured, and which have to be built from scratch, together with supporting justifications.
+
+We argue that beyond causal and trustworthy, a new admission criterion—\textbf{clinically defensible}—should be introduced for medical world models. When transferring components of the general world models to the medical domain, whether a component is retained depends on whether its failure outcomes are acceptable in clinical settings. For example, a component with visual artifacts caused by failed pixel-level reconstruction may be retained but must be downgraded. Passive prediction, whose failure mode is inability to answer interventional questions, must be replaced. Unconstrained action search, whose failure mode is potential generation of contraindicated plans, must be augmented with additional safety mechanisms.
+
+Clinically defensible further defines, beyond technical demonstration, what kinds of outputs can serve as reasoning evidence for clinical decision-makers. On one hand, it covers a broader scope than causal: it requires not only correct causal direction, but also calibrated uncertainty, standardized action semantics, and enforced safety constraints. On the other hand, it imposes more concrete operational requirements on top of trustworthy.
+
+The main contribution of our survey includes the following parts:
+
+\begin{enumerate}
+    \item we propose a component-wise judgment framework centering clinical defensible, which can audit all the widgets inherited from general world models. For example, state presentation, dynamics objectives, action space and evaluation system;
+    \item we reorganized the challenges listed in the existing surveys, such as long-horizon error, uncertainty calibration;
+    \item we propose three directions at the intersection of casual design and rollout reliability: the joint design of interventional conditional rollout and casual indentifiablitiy, active reanchoring mechanisms for long-horizon rollout, and robust representation learning for cross-institutional action semantics.
+\end{enumerate}
+
+\section{Clinical Defensibility: A Criterion for Component-Level Reconstruction}
+
+To offer a practical and actionalbe protocol for solving the gap between plausible simulation and can be used for the support of clinical decision-making, we build a audit protocal to illustrate under which condition does a component satisfy the clinical defensibility.
+
+The prototal comprises three steps. Firstly, we need to assure that when the components failed, it will not bring any casual mistakes or unsafe outcomes. second, the component should produce chain-of-reasoning which can be traced by clinical decision maker, usually the physicans or surgeryors. Meanwhile, the uncertainty of the components must allow calibrations and declare giving up when shift too far away from the apppropriate distributions.
+
+Except from the above protocol, we also point out the difference between defensibility and validatability. Considering we do not conduct experiments and make sure the validatability, we just do the checking phase in advance.
+
+\section{Auditing Inhertied Components I: What to delete}
+
+\section{Auditing Inhertied Components II: What to replace}
+
+\section{Auditing Inhertied Components III: What to add}
+
+\section{Innovation Imperatives at the Intersection of Causality and Rollout Reliability}
+
+\section{Discussion}
+
+\section{Conclusion}
+
+\printbibliography{}
+
+\end{document}

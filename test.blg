@@ -1,0 +1,9 @@
+[0] Config.pm:329> INFO - This is Biber 2.22
+[0] Config.pm:332> INFO - Logfile is 'test.blg'
+[28] biber-darwin:342> INFO - === Thu Nov 19, 2026, 17:06:08
+[35] Biber.pm:421> INFO - Reading 'test.bcf'
+[60] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
+[64] bbl.pm:676> INFO - Writing 'test.bbl' with encoding 'UTF-8'
+[64] bbl.pm:779> INFO - Output to test.bbl
+[64] Biber.pm:132> WARN - The file 'test.bcf' does not contain any citations!
+[65] Biber.pm:134> INFO - WARNINGS: 1
